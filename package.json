@@ -1,0 +1,26 @@
+{
+  "name": "slidy-component",
+  "version": "1.0.0",
+  "description": "Minimal slider with javascript and css",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diogoschen/dsc-components.git"
+  },
+  "keywords": [
+    "slider",
+    "swiper",
+    "glider",
+    "slides",
+    "javascript"
+  ],
+  "author": "dsc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diogoschen/dsc-components/issues"
+  },
+  "homepage": "https://github.com/diogoschen/dsc-components#readme"
+}

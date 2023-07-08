@@ -1,0 +1,74 @@
+$brand-color-crm: #043572;
+$brand-color-mdoc: #FFC40C;
+$platform-dark: #222222;
+$platform-mid: #666666;
+$platform-light: #999999;
+$platform-blue: #0095DA;
+$background-lightest: #FAFAFA;
+$white: #ffffff;
+$light-0: #F5FAFF;
+$light-1: #E3ECF4;
+$light-2: #D4E1ED;
+$light-3: #BED1E3;
+$light-blue: #D1E6FF;
+$mid-blue-1: #9FBBD6;
+$mid-blue-2: #5E8AB6;
+$mid-blue-3: #114C8B;
+$gray-1: #F1F3F5;
+$gray-2: #E9ECEF;
+$gray-3: #DEE2E6;
+$gray-4: #CED4DA;
+$gray-5: #ADB5BD;
+$gray-6: #868E96;
+$gray-7: #495057;
+$gray-8: #343A40;
+$gray-9: #212529;
+$dark-1: #02214E;
+$dark-2: #021839;
+
+$status-info: #235e91;
+$status-info-bg: #DEE7EF;
+$primary: $brand-color-crm;
+$secondary: $platform-mid;
+
+$font-family: 'Roboto', sans-serif;
+
+$grid-gutter-width: 1rem;
+$spacer: 1rem;
+$spacers: (
+    0: 0,
+    1: $spacer * .25,
+    2: $spacer * .5,
+    3: $spacer,
+    4: $spacer * 1.5,
+    5: $spacer * 2,
+    6: $spacer * 3,
+    7: $spacer * 4,
+);
+$gutters: (
+    0: 0,
+    1: $spacer * .25,
+    2: $spacer * .5,
+    3: $spacer,
+    4: $spacer * 1.5,
+    5: $spacer * 2,
+    6: $spacer * 3,
+    7: $spacer * 4,
+);
+
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1200px,
+);
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+);
