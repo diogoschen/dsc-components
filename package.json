@@ -1,5 +1,6 @@
 {
-  "name": "slidy-component",
+  "name": "@dschen/slidy-component",
+  "private": false,
   "version": "1.0.0",
   "description": "Minimal slider with javascript and css",
   "main": "index.js",

@@ -236,7 +236,7 @@ button {
   scroll-behavior: smooth;
   scroll-snap-type: inline mandatory;
   -ms-overflow-style: none;
-  scrollbar-width: 0;
+  scrollbar-width: none;
 }
 .slider .slider-stage::-webkit-scrollbar {
   display: none;
@@ -263,79 +263,6 @@ button {
 .slider .btn.btn-indicator.active {
   background-color: #FFC40C;
   aspect-ratio: 2.7;
-}
-
-#slider_reports .slider .slider-stage {
-  gap: 20px;
-  padding: 5px;
-}
-#slider_reports .slider .slider-stage .slider_item {
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-  overflow: hidden;
-}
-#slider_reports .slider .slider-indicators {
-  width: auto;
-}
-#slider_reports .slider .btn-next,
-#slider_reports .slider .btn-previous {
-  border-radius: 50px;
-  width: 40px;
-  aspect-ratio: 1;
-  background: linear-gradient(180deg, #114C8B 0%, #338AF3 100%);
-  box-shadow: 0px 4px 20px 2px rgba(34, 34, 34, 0.16);
-}
-#slider_reports .slider .btn-next[disabled],
-#slider_reports .slider .btn-previous[disabled] {
-  background: #868E96;
-}
-#slider_reports .slider .btn-indicator {
-  opacity: 0.6;
-}
-#slider_reports .slider .btn-indicator.active {
-  opacity: 1;
-  background-color: #0095DA;
-}
-#slider_reports .card {
-  background-color: #fafafa;
-  box-shadow: 0px 4px 2px rgba(1, 66, 195, 0.25);
-  border-radius: 5px;
-  overflow: hidden;
-  border: none;
-}
-#slider_reports .card .card_title {
-  color: #043572;
-  font-weight: 700;
-  font-size: clamp(1rem, 1.921vw, 1.125rem);
-  line-height: 1.3;
-}
-#slider_reports .card .card_text {
-  color: #868E96;
-  font-weight: 400;
-  font-size: clamp(1rem, 1.921vw, 1.125rem);
-  line-height: 1.3;
-  overflow: hidden;
-  max-height: 3.9em;
-}
-#slider_reports .card a {
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  color: #043572;
-}
-#slider_reports .card figure {
-  position: relative;
-  margin: 0;
-}
-#slider_reports .card figure img {
-  object-fit: cover;
-  aspect-ratio: 1.5;
-}
-#slider_reports .card figure::after {
-  content: "";
-  background: linear-gradient(0deg, rgba(51, 138, 243, 0.3), rgba(51, 138, 243, 0.3));
-  position: absolute;
-  inset: 0;
 }
 
 /*# sourceMappingURL=styles.css.map */

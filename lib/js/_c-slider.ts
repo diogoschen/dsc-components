@@ -22,6 +22,7 @@ function startSlider(slider: Element, id: number) {
     // records number of childs
     const nSlides = sliderStage.childElementCount;
     slidersList.push({ id: `slider-${id}`, currentIndex: 0, nSlides, nIndicators: 0 });
+    
     slider.id = `slider-${id}`;
 
     // add previous/next buttons events
