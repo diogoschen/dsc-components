@@ -227,28 +227,29 @@ button {
   border: none;
 }
 
-.slider .slider-stage {
+.slidy .slidy-stage {
   overflow: hidden;
   display: flex;
+  scroll-behavior: smooth;
   scroll-snap-type: inline mandatory;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-.slider .slider-stage::-webkit-scrollbar {
+.slidy .slidy-stage::-webkit-scrollbar {
   display: none;
 }
-.slider .slider-indicators {
+.slidy .slidy-indicators {
   gap: 0.25rem;
   width: 100%;
   display: flex;
   justify-content: center;
 }
-.slider .slider_item {
+.slidy .slidy-item {
   scroll-snap-align: center;
   flex: 0 0 auto;
   width: 100%;
 }
-.slider .btn.btn-indicator {
+.slidy .btn.btn-indicator {
   padding: 0;
   height: 12px;
   border-radius: 6px;
@@ -256,7 +257,7 @@ button {
   background-color: #DEE2E6;
   transition: all 0.2s;
 }
-.slider .btn.btn-indicator.active {
+.slidy .btn.btn-indicator.active {
   background-color: #FFC40C;
   aspect-ratio: 2.7;
 }

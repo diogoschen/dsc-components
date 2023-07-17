@@ -24,14 +24,14 @@ function initSlidy() : void {
 
         private onInit() {
             
-            const sliderStage = this.slider.querySelector('.slider-stage') as HTMLElement;
+            const sliderStage = this.slider.querySelector('.slidy-stage') as HTMLElement;
 
             if(!sliderStage) return 
 
             // records number of childs
             this.nSlides = sliderStage.childElementCount;
             
-            this.slider.id = `slider-${this.index}`;
+            this.slider.id = `slidy-${this.index}`;
             
             this.sliderElements = { slider: this.slider, sliderStage };
 
@@ -42,7 +42,7 @@ function initSlidy() : void {
 
         private initNavigationIndicators(): void {
 
-            const sliderIndicators = this.slider.querySelector('.slider-indicators') as HTMLElement;
+            const sliderIndicators = this.slider.querySelector('.slidy-indicators') as HTMLElement;
 
             if (!sliderIndicators) return 
 
@@ -56,8 +56,8 @@ function initSlidy() : void {
         private initNavigationButtons() : void {
 
             // add previous/next buttons events
-            const sliderBtnNext = this.slider.querySelector('.slider-next') as HTMLElement;
-            const sliderBtnPrevious = this.slider.querySelector('.slider-previous') as HTMLElement;
+            const sliderBtnNext = this.slider.querySelector('.slidy-next') as HTMLElement;
+            const sliderBtnPrevious = this.slider.querySelector('.slidy-previous') as HTMLElement;
 
             if (!sliderBtnNext && !sliderBtnPrevious) return
 
@@ -123,7 +123,7 @@ function initSlidy() : void {
                     temp.innerHTML = `
                         <button
                             type="button"
-                            class="slider-indicator slider-indicator-${i * nSlidesVisible} ${i * nSlidesVisible === this.currentSlide ? 'active' : null} btn btn-indicator"
+                            class="slidy-indicator slidy-indicator-${i * nSlidesVisible} ${i * nSlidesVisible === this.currentSlide ? 'active' : null} btn btn-indicator"
                             aria-label="Slide ${i * nSlidesVisible}">
                         </button>`;
                         
@@ -149,8 +149,8 @@ function initSlidy() : void {
             
             const { sliderIndicators } = this.sliderElements;
 
-            sliderIndicators?.querySelectorAll('.slider-indicator')!.forEach(btn => btn.classList.remove('active'));
-            sliderIndicators?.querySelector(`.slider-indicator-${index}`)?.classList.add('active');
+            sliderIndicators?.querySelectorAll('.slidy-indicator')!.forEach(btn => btn.classList.remove('active'));
+            sliderIndicators?.querySelector(`.slidy-indicator-${index}`)?.classList.add('active');
         }
 
         private goToSlide(index: number) {
@@ -189,7 +189,7 @@ function initSlidy() : void {
         
     }
 
-    const sliders = [...document.querySelectorAll('.slider')] as HTMLElement[];
+    const sliders = [...document.querySelectorAll('.slidy')] as HTMLElement[];
     
     sliders.forEach((slide: HTMLElement, i: number) => {
         new Slider(slide, i);
