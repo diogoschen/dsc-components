@@ -1,3 +1,3 @@
-import * as slidy from './lib/js/_c-slider.js'
+import * as slidy from './lib/js/slider.component.js'
 
 export default slidy ;

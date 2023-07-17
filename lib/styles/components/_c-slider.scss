@@ -1,10 +1,10 @@
 .slider {
-    position: relative;
+    // position: relative;
 
     .slider-stage {
         overflow: hidden;
         display: flex;
-        scroll-behavior: smooth;
+        // scroll-behavior: smooth;
         scroll-snap-type: inline mandatory;
 
         -ms-overflow-style: none;

@@ -1,10 +1,11 @@
 {
-  "name": "@dschen/slidy-component",
+  "name": "@dschen/slidy",
   "private": false,
   "version": "1.0.0",
   "description": "Minimal slider with javascript and css",
   "main": "index.js",
   "scripts": {
+    "tsc": "tsc -w ./lib/js/slider.component.ts --target es2016",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

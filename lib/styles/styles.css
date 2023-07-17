@@ -227,13 +227,9 @@ button {
   border: none;
 }
 
-.slider {
-  position: relative;
-}
 .slider .slider-stage {
   overflow: hidden;
   display: flex;
-  scroll-behavior: smooth;
   scroll-snap-type: inline mandatory;
   -ms-overflow-style: none;
   scrollbar-width: none;
