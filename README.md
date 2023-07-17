@@ -1,6 +1,6 @@
 # Slidy NPM Package Installation Guide
 
-Slidy is a powerful npm package that allows you to create beautiful and interactive sliders for your web projects. This guide will walk you through the process of installing and configuring Slidy for your website.
+Slidy is a simple npm package that allows you to create customizable sliders for your web projects. This guide will walk you through the process of installing and configuring Slidy for your website.
 
 ## Installation
 
