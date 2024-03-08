@@ -1,11 +1,12 @@
 {
   "name": "@dschen/slidy",
   "private": false,
-  "version": "1.0.0",
-  "description": "Minimal slider with javascript and css",
+  "version": "1.0.1",
+  "description": "Slidy is a simple npm package that allows you to create customizable sliders for your web projects.",
   "main": "index.js",
   "scripts": {
     "tsc": "tsc -w ./lib/js/slider.component.ts --target es2016",
+    "sass": "sass -w ./lib/styles/styles.scss ./lib/styles/styles.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

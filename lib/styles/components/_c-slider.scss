@@ -2,7 +2,7 @@
     // position: relative;
 
     .slidy-stage {
-        overflow: hidden;
+        overflow: scroll;
         display: flex;
         scroll-behavior: smooth;
         scroll-snap-type: inline mandatory;
@@ -24,7 +24,7 @@
 
 
     .slidy-item {
-        scroll-snap-align: center;
+        scroll-snap-align: start;
         flex: 0 0 auto;
         width: 100%;
     }
