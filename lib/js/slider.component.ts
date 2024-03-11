@@ -3,19 +3,15 @@ import { ISliderElements } from "./slider.interface";
 export const init = () => document.addEventListener('DOMContentLoaded', initSlidy);
 
 function initSlidy(): void {
-
-
     class Slider {
 
         private readonly SWIPPER_THRESHOLD = 1;
-
+        private isMoving: boolean;
         private slider: HTMLElement;
         private index: number;
         private nSlides: number;
-        private nIndicators: number;
         private currentSlide: number = 0;
         private nSlidesVisible: number = 0;
-        private checkIndicators: boolean = true;
 
         private sliderElements: ISliderElements;
 
@@ -93,23 +89,23 @@ function initSlidy(): void {
             let options = {
                 root: sliderStage,
                 rootMargin: "0px",
-                threshold: this.SWIPPER_THRESHOLD-0.01,
+                threshold: this.SWIPPER_THRESHOLD - 0.01,
             };
 
             let observer = new IntersectionObserver(e => {
                 e.forEach((entry) => {
-                    if (!entry.isIntersecting || !sliderIndicators) return;
+                    if (!entry.isIntersecting || !sliderIndicators || this.isMoving) return;
                     const id = Number((entry.target as HTMLElement)?.dataset?.id);
                     const hasIndicator = sliderIndicators.querySelector(`.slidy-indicator-${id}`);
 
-                    if(hasIndicator) {
+                    if (hasIndicator) {
                         this.handleActiveIndicators(id);
                         this.goToSlide(id);
                     }
-                    if(id === this.nSlides - 1){
+                    if (id === this.nSlides - 1) {
                         this.handleNavigationButtonsState("end");
                     }
-                    if(id === 0){
+                    if (id === 0) {
                         this.handleNavigationButtonsState("start");
                     }
 
@@ -125,11 +121,6 @@ function initSlidy(): void {
         private async delay(time: number) {
 
             return new Promise((resolve, _) => setTimeout(() => resolve(true), time))
-        }
-
-        private isSmaller(slide: HTMLElement) {
-
-            return this.slider.clientWidth > slide.clientWidth * 1.05
         }
 
         private initNavigationIndicators(): void {
@@ -202,7 +193,7 @@ function initSlidy(): void {
 
             if (!this.sliderElements) return
 
-            const { slider, sliderStage, sliderIndicators } = this.sliderElements;
+            const { sliderIndicators } = this.sliderElements;
 
             let nSlidesVisible = this.nSlidesVisible;
 
@@ -252,7 +243,7 @@ function initSlidy(): void {
         }
 
         private async goToSlide(index: number) {
-
+            this.isMoving = true;
             if (!this.sliderElements) return
 
             const { sliderStage } = this.sliderElements;
@@ -272,6 +263,7 @@ function initSlidy(): void {
             if (sliderStage.scrollLeft === 0) point = 'start';
 
             this.handleNavigationButtonsState(point);
+            this.isMoving = false;
         }
 
         private handleNavigationButtonsState(point?: string) {

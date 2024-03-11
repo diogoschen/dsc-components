@@ -1,7 +1,7 @@
 {
   "name": "@dschen/slidy",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Slidy is a simple npm package that allows you to create customizable sliders for your web projects.",
   "main": "index.js",
   "scripts": {
