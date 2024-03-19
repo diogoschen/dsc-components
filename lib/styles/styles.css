@@ -151,13 +151,13 @@ textarea {
 input:focus,
 textarea:focus,
 select:focus {
-  outline-offset: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
+  outline-offset: 0;
+  outline: 0;
+  box-shadow: none;
 }
 
 .form-control:focus {
-  box-shadow: none !important;
+  box-shadow: none;
 }
 
 .no-js #loader {
@@ -196,7 +196,7 @@ input[type=radio]:disabled,
 input[type=radio]:disabled + label input[type=file]:disabled,
 input[type=file]:disabled + label {
   opacity: 0.3;
-  cursor: not-allowed !important;
+  cursor: not-allowed;
 }
 
 input[type=number] {
@@ -215,11 +215,11 @@ input {
 }
 
 .preload * {
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -ms-transition: none !important;
-  -o-transition: none !important;
-  transition: none !important;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
 }
 
 button {

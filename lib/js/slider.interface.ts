@@ -15,3 +15,9 @@ export interface ISliderElements {
         sliderBtnNext?: HTMLElement
     }
 }
+
+export interface ISliderOptions {
+    id?: number;
+    indicatorsAsButtons?: boolean;
+    animationDuration?: number;
+}
