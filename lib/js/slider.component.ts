@@ -72,6 +72,7 @@ function initSlidy(options: ISliderOptions | ISliderOptions[]): void {
                         this.handleIndicators();
                     }
                 });
+                observer.disconnect();
             }, options);
 
             observer.observe(this.slider);
@@ -117,7 +118,7 @@ function initSlidy(options: ISliderOptions | ISliderOptions[]): void {
         }
 
         private toggleActiveClass(element: HTMLElement, isIntersecting: boolean) {
-            if (this.isResizing) return;
+            if (this.isResizing || !element) return;
 
             if (isIntersecting) {
                 element.classList.add("slidy-active");
@@ -141,22 +142,23 @@ function initSlidy(options: ISliderOptions | ISliderOptions[]): void {
                 if (!this.sliderElements) return
 
                 const { slides, sliderStage } = this.sliderElements;
-                this.nSlidesVisible = 0;
                 let options = {
                     root: sliderStage,
                     rootMargin: "0px",
                     threshold: this.SWIPPER_THRESHOLD,
                 };
                 let observer = new IntersectionObserver(e => {
+                    
+                    this.nSlidesVisible = 0;
                     e.forEach(entry => {
-
                         if (!entry.isIntersecting) return;
                         this.nSlidesVisible += 1;
                     })
-
-                    resolve();
+                    
                     observer.disconnect();
+                    resolve();
                 }, options);
+                
                 slides.forEach((s) => {
                     observer.observe(s)
                 });
