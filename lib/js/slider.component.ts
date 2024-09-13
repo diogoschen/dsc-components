@@ -345,7 +345,8 @@ function initSlidy(options: ISliderOptions | ISliderOptions[]): void {
 
                 // this.handleEventIndicators(sliderElements);
                 // moves to slide after resizing
-                if (this.isResizing) {
+                const regexMobile = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+                if (this.isResizing && !regexMobile.test(navigator?.userAgent)) {
 
                     this.goToSlide(this.currentSlide)
                 }
