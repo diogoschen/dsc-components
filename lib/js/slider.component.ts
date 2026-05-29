@@ -9,17 +9,17 @@ function initSlidy(options: ISliderOptions | ISliderOptions[]): void {
         private isMoving: boolean = false;
         private slider: HTMLElement;
         private index: number;
-        private nSlides: number;
+        private nSlides: number = 0;
         private currentSlide: number = 0;
         private nSlidesVisible: number = 0;
         private isResizing: boolean = false;
-        private sliderIsVisible: boolean;
+        private sliderIsVisible: boolean = false;
         private options: ISliderOptions = {
             indicatorsAsButtons: true,
             animationDuration: 0
         };
 
-        private sliderElements: ISliderElements;
+        private sliderElements!: ISliderElements;
 
         constructor(slider: HTMLElement, index: number, options: ISliderOptions) {
             this.slider = slider;
@@ -31,11 +31,11 @@ function initSlidy(options: ISliderOptions | ISliderOptions[]): void {
 
         private async onInit() {
             const sliderStage = this.slider.querySelector('.slidy-stage') as HTMLElement;
-            const mutationObserver = new MutationObserver(async ()=>{
+            const mutationObserver = new MutationObserver(async () => {
                 await this.delay(500);
                 this.restart(sliderStage);
             });
-            mutationObserver.observe(sliderStage, {childList: true, subtree: true});
+            mutationObserver.observe(sliderStage, { childList: true, subtree: true });
 
             if (!sliderStage) return
 
@@ -72,49 +72,49 @@ function initSlidy(options: ISliderOptions | ISliderOptions[]): void {
                         this.handleIndicators();
                     }
                 });
-                observer.disconnect();
+                // observer.disconnect();
             }, options);
 
             observer.observe(this.slider);
         }
 
         private async restart(sliderStage: HTMLElement) {
-             // records number of childs
-             this.nSlides = sliderStage.childElementCount;
-             const slides = [...sliderStage.children].map((c, i) => {
-                 const el = c as HTMLElement;
-                 el.dataset.id = `${i}`;
-                 return el
-             });
- 
-             this.slider.id = `slidy-${this.index}`;
- 
-             this.sliderElements = { slider: this.slider, sliderStage, slides };
- 
-             this.initNavigationButtons(true);
-             await this.updateNumberVisibleSlides();
-             this.initNavigationIndicators();
- 
-             let options = {
-                 root: document,
-                 rootMargin: "0px",
-                 threshold: .5,
-             };
- 
-             let observer = new IntersectionObserver(e => {
-                 e.forEach(async (entry) => {
-                     this.initSlidesObserver(entry.isIntersecting);
-                     this.sliderIsVisible = entry.isIntersecting;
- 
-                     if (entry.isIntersecting) {
- 
-                         await this.updateNumberVisibleSlides();
-                         this.handleIndicators();
-                     }
-                 });
-             }, options);
- 
-             observer.observe(this.slider);
+            // records number of childs
+            this.nSlides = sliderStage.childElementCount;
+            const slides = [...sliderStage.children].map((c, i) => {
+                const el = c as HTMLElement;
+                el.dataset.id = `${i}`;
+                return el
+            });
+
+            this.slider.id = `slidy-${this.index}`;
+
+            this.sliderElements = { slider: this.slider, sliderStage, slides };
+
+            this.initNavigationButtons(true);
+            await this.updateNumberVisibleSlides();
+            this.initNavigationIndicators();
+
+            let options = {
+                root: document,
+                rootMargin: "0px",
+                threshold: .5,
+            };
+
+            let observer = new IntersectionObserver(e => {
+                e.forEach(async (entry) => {
+                    this.initSlidesObserver(entry.isIntersecting);
+                    this.sliderIsVisible = entry.isIntersecting;
+
+                    if (entry.isIntersecting) {
+
+                        await this.updateNumberVisibleSlides();
+                        this.handleIndicators();
+                    }
+                });
+            }, options);
+
+            observer.observe(this.slider);
         }
 
         private toggleActiveClass(element: HTMLElement, isIntersecting: boolean) {
@@ -137,7 +137,7 @@ function initSlidy(options: ISliderOptions | ISliderOptions[]): void {
 
         private updateNumberVisibleSlides(): Promise<void> {
 
-            const observeElements = (resolve) => {
+            const observeElements = (resolve: any) => {
 
                 if (!this.sliderElements) return
 
@@ -148,17 +148,17 @@ function initSlidy(options: ISliderOptions | ISliderOptions[]): void {
                     threshold: this.SWIPPER_THRESHOLD,
                 };
                 let observer = new IntersectionObserver(e => {
-                    
+
                     this.nSlidesVisible = 0;
                     e.forEach(entry => {
                         if (!entry.isIntersecting) return;
                         this.nSlidesVisible += 1;
                     })
-                    
+
                     observer.disconnect();
                     resolve();
                 }, options);
-                
+
                 slides.forEach((s) => {
                     observer.observe(s)
                 });
@@ -246,14 +246,14 @@ function initSlidy(options: ISliderOptions | ISliderOptions[]): void {
             let sliderBtnNext = this.slider.querySelector('.slidy-next') as HTMLElement;
             let sliderBtnPrevious = this.slider.querySelector('.slidy-previous') as HTMLElement;
 
-            if(restart){
+            if (restart) {
                 const newNext = sliderBtnNext.cloneNode(true);
                 const newPrevious = sliderBtnPrevious.cloneNode(true);
                 sliderBtnNext.parentNode?.replaceChild(newNext, sliderBtnNext);
                 sliderBtnPrevious.parentNode?.replaceChild(newPrevious, sliderBtnPrevious);
 
-                sliderBtnNext = newNext as  HTMLElement;
-                sliderBtnPrevious = newPrevious as  HTMLElement;
+                sliderBtnNext = newNext as HTMLElement;
+                sliderBtnPrevious = newPrevious as HTMLElement;
             }
 
             if (!sliderBtnNext && !sliderBtnPrevious) return
@@ -422,9 +422,9 @@ function initSlidy(options: ISliderOptions | ISliderOptions[]): void {
     sliders.forEach((slide: HTMLElement, i: number) => {
         let sliderOptions;
         if (Array.isArray(options)) {
-            sliderOptions = options.find(op => op.id === i) ?? {};
+            sliderOptions = options.find(op => op?.id === i) ?? {};
         } else {
-            sliderOptions = options.id === i ? options : {};
+            sliderOptions = options?.id === i ? options : {};
         }
 
         new Slider(slide, i, sliderOptions);
